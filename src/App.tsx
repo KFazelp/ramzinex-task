@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import { Provider } from 'react-redux';
+import './styles/index.scss';
+import store from './core/store/store';
+import { AllCurrencies } from './views/allCurrencies/allCurrencies';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SingleCurrency } from './views/singleCurrency/singleCurrency';
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<AllCurrencies />} />
+            <Route path='/currency/:id' element={<SingleCurrency />} />
+          </Routes>
+        </Router>
+      </Provider>
     </div>
   );
 }
