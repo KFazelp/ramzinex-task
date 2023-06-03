@@ -1,6 +1,7 @@
 {
   "name": "ramzinex-task",
   "version": "0.1.0",
+  "author": "Fazel Kazempour",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
